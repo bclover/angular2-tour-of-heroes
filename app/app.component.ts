@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
+import {OnInit} from '@angular/core';
 import { Hero } from './hero';
 import { HeroDetailComponent } from './hero-detail.component';
+import { HeroService } from './hero.service';
 
 @Component({
     directives: [HeroDetailComponent],
@@ -64,29 +66,28 @@ import { HeroDetailComponent } from './hero-detail.component';
         margin-right: .8em;
         border-radius: 4px 0 0 4px;
       }
-    `]
+    `],
+    providers: [HeroService]
 })
 
-export class AppComponent {
-    public heroes = HEROES;
+export class AppComponent implements OnInit{
+
+    heroes: Hero[];
     title = 'Tour of Heroes';
     selectedHero:Hero;
+
+    constructor(private heroService: HeroService) { }
+
+    getHeroes() {
+        this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    }
+
+    ngOnInit() {
+        this.getHeroes();
+    }
 
     onSelect(hero:Hero) {
         this.selectedHero = hero;
     }
 }
-
-var HEROES:Hero[] = [
-    {"id": 11, "name": "Bryan Clover"},
-    {"id": 12, "name": "Johnny Depp"},
-    {"id": 13, "name": "Jack Nicholson"},
-    {"id": 14, "name": "Dustin Hoffman"},
-    {"id": 15, "name": "Newton Martins"},
-    {"id": 16, "name": "John Travolta"},
-    {"id": 17, "name": "Morgan Freeman"},
-    {"id": 18, "name": "James Earl Jones"},
-    {"id": 19, "name": "Gweneth Paltrow"},
-    {"id": 20, "name": "Nicole Kidman"}
-];
 
