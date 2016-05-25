@@ -3,7 +3,6 @@
  */
 
 export class Hero {
-  id: number;
-  name: string;
+    id:number;
+    name:string;
 }
-

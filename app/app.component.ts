@@ -2,13 +2,13 @@
  * Created by bclover on 5/24/16.
  */
 
-import {Component} from '@angular/core';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
+import { Component } from '@angular/core';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
-import {HeroService}     from './hero.service';
-import {HeroesComponent} from "./heroes.component";
-import {DashboardComponent} from "./dashboard.component";
-import {HeroDetailComponent} from "./hero-detail.component";
+import { DashboardComponent } from "./dashboard.component";
+import { HeroesComponent } from "./heroes.component";
+import { HeroDetailComponent } from "./hero-detail.component";
+import { HeroService }     from './hero.service';
 
 @RouteConfig([
     {
