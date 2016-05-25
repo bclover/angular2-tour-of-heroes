@@ -56,10 +56,6 @@ export class HeroesComponent implements OnInit {
             .catch(error => this.error = error); // TODO: Display error message
     }
 
-    getHeroesSlowly() {
-        this._heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
-    }
-
     gotoDetail() {
         this._router.navigate(['HeroDetail', {id: this.selectedHero.id}]);
     }
